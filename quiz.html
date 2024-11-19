@@ -3,39 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App</title>
+    <title>Fun Physics Quiz</title>
     <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
     <div class="container">
-        <!-- Teacher's Input Section -->
-        <div id="teacher-section">
-            <h2>Create Quiz Questions</h2>
-            <form id="question-form">
-                <input type="text" id="question" placeholder="Enter question" required>
-                <input type="text" id="correct-answer" placeholder="Correct answer" required>
-                <input type="text" id="wrong1" placeholder="Wrong answer 1" required>
-                <input type="text" id="wrong2" placeholder="Wrong answer 2" required>
-                <input type="text" id="wrong3" placeholder="Wrong answer 3" required>
-                <button type="submit">Add Question</button>
-            </form>
-            <button id="start-quiz" style="display: none;">Start Quiz</button>
+        <div id="start-screen">
+            <h1>🔬 Fun Physics Quiz! 🧪</h1>
+            <p>Test your knowledge of physics with these fun questions!</p>
+            <button id="start-btn">Start Quiz</button>
         </div>
 
-        <!-- Quiz Section -->
-        <div id="quiz-section" style="display: none;">
-            <div id="progress">Question <span id="current">1</span> of <span id="total">0</span></div>
-            <div id="score">Score: <span id="score-value">0</span></div>
-            
-            <div id="question-container">
-                <h2 id="question-text"></h2>
-                <div id="answers" class="btn-grid">
-                    <!-- Answers will be inserted here -->
-                </div>
+        <div id="quiz-container" class="hide">
+            <div id="quiz-header">
+                <div id="progress">Question <span id="current">1</span> of <span id="total">10</span></div>
+                <div id="score">Score: <span id="score-value">0</span></div>
             </div>
-            
-            <button id="next-btn" style="display: none;">Next Question</button>
-            <button id="restart-btn" style="display: none;">Restart Quiz</button>
+
+            <div id="question-container">
+                <h2 id="question"></h2>
+                <div id="answers" class="btn-grid"></div>
+            </div>
+
+            <div id="feedback" class="hide">
+                <p id="feedback-text"></p>
+                <p id="explanation"></p>
+            </div>
+
+            <button id="next-btn" class="hide">Next Question</button>
+        </div>
+
+        <div id="end-screen" class="hide">
+            <h2>Quiz Complete! 🎉</h2>
+            <p>Your final score: <span id="final-score">0</span> out of <span id="total-questions">0</span></p>
+            <button id="restart-btn">Try Again</button>
         </div>
     </div>
     <script src="quiz.js"></script>
