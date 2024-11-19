@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Teacher's Input Section -->
+        <div id="teacher-section">
+            <h2>Create Quiz Questions</h2>
+            <form id="question-form">
+                <input type="text" id="question" placeholder="Enter question" required>
+                <input type="text" id="correct-answer" placeholder="Correct answer" required>
+                <input type="text" id="wrong1" placeholder="Wrong answer 1" required>
+                <input type="text" id="wrong2" placeholder="Wrong answer 2" required>
+                <input type="text" id="wrong3" placeholder="Wrong answer 3" required>
+                <button type="submit">Add Question</button>
+            </form>
+            <button id="start-quiz" style="display: none;">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz-section" style="display: none;">
+            <div id="progress">Question <span id="current">1</span> of <span id="total">0</span></div>
+            <div id="score">Score: <span id="score-value">0</span></div>
+            
+            <div id="question-container">
+                <h2 id="question-text"></h2>
+                <div id="answers" class="btn-grid">
+                    <!-- Answers will be inserted here -->
+                </div>
+            </div>
+            
+            <button id="next-btn" style="display: none;">Next Question</button>
+            <button id="restart-btn" style="display: none;">Restart Quiz</button>
+        </div>
+    </div>
+    <script src="quiz.js"></script>
+</body>
+</html> 
