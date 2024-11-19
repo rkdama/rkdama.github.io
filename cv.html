@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f5f6fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--light-bg);
+        }
+
+        .cv-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            color: var(--text-color);
+            font-size: 0.9em;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: var(--secondary-color);
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .skill-item {
+            background: var(--light-bg);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .cv-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="header">
+            <h1>Your Name</h1>
+            <div class="contact-info">
+                <p>📧 rikadama21@gmail.com | 📱 +82 10 9899 1992 | 📍 Cheongju, South Korea</p>
+                <p>🔗 Instagram: <a href="https://www.instagram.com/rkdama/">@rkdama</a> | 💻 GitHub: <a href="https://github.com/rkdama">rkdama</a></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Summary</h2>
+            <p>"Hi everyone! My name is Rika, and I am so excited to be your teacher this year. A little about me—I love traveling and exploring new places. Whether it is a weekend trip or visiting a country on the other side of the world, I’m always up for an adventure. I think traveling teaches us so much about the world and helps us see things from new perspectives. I am looking forward to getting to know all of you and making this a great year together!"</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <h3>Bachelor of Art in Physics Education</h3>
+                <div class="date">Malang State University | 2015</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Interests</h2>
+            <p>Traveling, Hiking, Reading, and Learning</p>
+        </div>
+    </div>
+</body>
+</html>
