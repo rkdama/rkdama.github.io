@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #6C63FF;
-    --secondary-color: #FF6B6B;
-    --correct-color: #4CAF50;
-    --incorrect-color: #FF5252;
-    --background-color: #F0F3FF;
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --correct-color: #2ecc71;
+    --incorrect-color: #e74c3c;
+    --background-color: #f5f6fa;
 }
 
 * {
@@ -13,7 +13,7 @@
 }
 
 body {
-    font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+    font-family: 'Arial', sans-serif;
     background-color: var(--background-color);
     min-height: 100vh;
     display: flex;
@@ -24,39 +24,47 @@ body {
 .container {
     max-width: 800px;
     width: 90%;
-    margin: 2rem auto;
+    margin: 2rem;
 }
 
-#start-screen, #game-over {
-    text-align: center;
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
 }
 
-.mascot {
-    font-size: 5rem;
-    margin: 2rem 0;
-    animation: bounce 2s infinite;
+.home-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.3s ease;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+.home-btn:hover {
+    transform: translateY(-2px);
 }
 
 .flashcard {
     background: white;
     padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     margin: 2rem 0;
-    min-height: 300px;
+}
+
+.card-content {
+    text-align: center;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
 .emoji {
@@ -81,31 +89,19 @@ button {
     padding: 12px 30px;
     font-size: 1.2rem;
     border: none;
-    border-radius: 50px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: inherit;
-    background-color: var(--primary-color);
-    color: white;
-}
-
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
 }
 
 #true-btn {
     background-color: var(--correct-color);
+    color: white;
 }
 
 #false-btn {
     background-color: var(--incorrect-color);
+    color: white;
 }
 
 .navigation-buttons {
@@ -119,6 +115,25 @@ button:disabled {
     justify-content: space-between;
     font-size: 1.2rem;
     margin-bottom: 1rem;
+}
+
+#start-screen, #game-over {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.mascot {
+    font-size: 5rem;
+    margin: 2rem 0;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
 .hidden {
@@ -136,7 +151,11 @@ button:disabled {
 }
 
 #encouragement {
-    font-size: 1.2rem;
-    margin: 1rem 0;
     color: var(--primary-color);
+    margin: 1rem 0;
 }
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+} 

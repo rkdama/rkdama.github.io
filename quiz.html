@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔬 Physics Flashcard Quiz! 🧪</title>
+    <title>Physics Flashcard Quiz</title>
     <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
+    <!-- Add Home Button -->
+    <div class="home-button">
+        <a href="index.html" class="home-btn">🏠 Home</a>
+    </div>
+
     <div class="container">
         <div id="start-screen">
-            <h1>🔬 Physics Flashcard Quiz! 🧪</h1>
-            <p>Get ready to test your physics knowledge! But be careful - one wrong answer and the game ends!</p>
+            <h1>Physics Flashcard Quiz</h1>
+            <p>Test your physics knowledge! Be careful - one wrong answer ends the game!</p>
             <div class="mascot">🤖</div>
             <button id="start-btn" onclick="startQuiz()">Start Quiz!</button>
         </div>
 
         <div id="quiz-container" class="hidden">
             <div class="score-display">
-                <span>⭐ Score: <span id="current-score">0</span></span>
-                <span>📝 Question: <span id="question-number">1</span>/<span id="total-questions"></span></span>
+                <span>Score: <span id="current-score">0</span></span>
+                <span>Question: <span id="question-number">1</span>/<span id="total-questions"></span></span>
             </div>
 
             <div class="flashcard">
-                <div id="question-emoji" class="emoji">🤔</div>
-                <p id="question-text"></p>
+                <div class="card-content">
+                    <div id="question-emoji" class="emoji"></div>
+                    <p id="question-text"></p>
+                </div>
                 
                 <div class="button-container">
                     <button id="true-btn" onclick="checkAnswer(true)">True</button>
@@ -31,8 +38,8 @@
                 </div>
 
                 <div class="navigation-buttons">
-                    <button id="prev-btn" onclick="previousQuestion()" disabled>← Previous</button>
-                    <button id="next-btn" onclick="nextQuestion()" disabled>Next →</button>
+                    <button id="prev-btn" onclick="previousQuestion()">Previous</button>
+                    <button id="next-btn" onclick="nextQuestion()">Next</button>
                 </div>
             </div>
         </div>
@@ -42,7 +49,7 @@
             <div id="result-emoji"></div>
             <p id="final-score"></p>
             <p id="encouragement"></p>
-            <button onclick="restartQuiz()">Try Again! 🚀</button>
+            <button onclick="restartQuiz()">Try Again!</button>
         </div>
     </div>
     <script src="quiz.js"></script>

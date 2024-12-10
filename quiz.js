@@ -53,6 +53,7 @@ const questions = [
 
 let currentQuestion = 0;
 let score = 0;
+let answeredQuestions = new Set();
 
 function startQuiz() {
     document.getElementById('start-screen').classList.add('hidden');
@@ -67,22 +68,34 @@ function displayQuestion() {
     document.getElementById('question-text').textContent = questionData.question;
     document.getElementById('question-number').textContent = currentQuestion + 1;
     
-    // Enable/disable navigation buttons
-    document.getElementById('prev-btn').disabled = currentQuestion === 0;
-    document.getElementById('next-btn').disabled = currentQuestion === questions.length - 1;
+    updateNavigationButtons();
+}
+
+function updateNavigationButtons() {
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    prevBtn.disabled = currentQuestion === 0;
+    nextBtn.disabled = currentQuestion === questions.length - 1 || 
+                      !answeredQuestions.has(currentQuestion);
 }
 
 function checkAnswer(userAnswer) {
+    if (answeredQuestions.has(currentQuestion)) {
+        return; // Question already answered
+    }
+
     const correctAnswer = questions[currentQuestion].answer;
     
     if (userAnswer === correctAnswer) {
         score++;
         document.getElementById('current-score').textContent = score;
+        answeredQuestions.add(currentQuestion);
         
-        if (currentQuestion < questions.length - 1) {
-            nextQuestion();
-        } else {
+        if (currentQuestion === questions.length - 1) {
             gameOver(true);
+        } else {
+            updateNavigationButtons();
         }
     } else {
         gameOver(false);
@@ -97,7 +110,8 @@ function previousQuestion() {
 }
 
 function nextQuestion() {
-    if (currentQuestion < questions.length - 1) {
+    if (currentQuestion < questions.length - 1 && 
+        answeredQuestions.has(currentQuestion)) {
         currentQuestion++;
         displayQuestion();
     }
@@ -125,6 +139,7 @@ function gameOver(completed) {
 function restartQuiz() {
     currentQuestion = 0;
     score = 0;
+    answeredQuestions.clear();
     document.getElementById('current-score').textContent = score;
     document.getElementById('game-over').classList.add('hidden');
     document.getElementById('start-screen').classList.remove('hidden');
