@@ -3,68 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔬 Fun Physics Quiz! 🧪</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="/rkdama.github.io/js/"></script>
-  
+    <title>🔬 Physics Flashcard Quiz! 🧪</title>
+    <link rel="stylesheet" href="quiz.css">
 </head>
-        
 <body>
     <div class="container">
         <div id="start-screen">
-            <h1>🔬 Fun Physics Quiz! 🧪</h1>
-            <p>Ready to explore the amazing world of physics? Let's go!</p>
+            <h1>🔬 Physics Flashcard Quiz! 🧪</h1>
+            <p>Get ready to test your physics knowledge! But be careful - one wrong answer and the game ends!</p>
             <div class="mascot">🤖</div>
-            <button id="start-btn"button type="button" onclick="location.href='/js/quiz.js'">start Adventure!</button> 
-                </div>
+            <button id="start-btn" onclick="startQuiz()">Start Quiz!</button>
+        </div>
 
         <div id="quiz-container" class="hidden">
             <div class="score-display">
                 <span>⭐ Score: <span id="current-score">0</span></span>
-                <span>❤️ Lives: <span id="lives">3</span></span>
+                <span>📝 Question: <span id="question-number">1</span>/<span id="total-questions"></span></span>
             </div>
 
-            <div class="question-box">
+            <div class="flashcard">
                 <div id="question-emoji" class="emoji">🤔</div>
-                <p id="question-number"></p>
                 <p id="question-text"></p>
-            </div>
-            
-            <div class="button-container">
-                <button id="true-btn" onclick="checkAnswer(true)">
-                    <span class="emoji">✅</span> True
-                </button>
-                <button id="false-btn" onclick="checkAnswer(false)">
-                    <span class="emoji">❌</span> False
-                </button>
-            </div>
+                
+                <div class="button-container">
+                    <button id="true-btn" onclick="checkAnswer(true)">True</button>
+                    <button id="false-btn" onclick="checkAnswer(false)">False</button>
+                </div>
 
-            <div id="feedback" class="hidden">
-                <div id="feedback-emoji"></div>
-                <p id="feedback-text"></p>
-                <p id="explanation"></p>
-            </div>
-            
-            <div class="progress-container">
-                <div id="progress-bar"></div>
+                <div class="navigation-buttons">
+                    <button id="prev-btn" onclick="previousQuestion()" disabled>← Previous</button>
+                    <button id="next-btn" onclick="nextQuestion()" disabled>Next →</button>
+                </div>
             </div>
         </div>
 
-        <div id="results-container" class="hidden">
-            <h2>🎉 Quiz Complete! 🎉</h2>
+        <div id="game-over" class="hidden">
+            <h2>Game Over!</h2>
             <div id="result-emoji"></div>
             <p id="final-score"></p>
             <p id="encouragement"></p>
-            
-            <!-- Add review section -->
-            <div id="review-section">
-                <h3>Let's Review Your Answers! 📝</h3>
-                <div id="answers-review"></div>
-            </div>
-            
-            <button id="restart-btn" onclick="restartQuiz()">Try Again! 🚀</button>
+            <button onclick="restartQuiz()">Try Again! 🚀</button>
         </div>
     </div>
-        
-    </body>
-</html> 
+    <script src="quiz.js"></script>
+</body>
+</html>
